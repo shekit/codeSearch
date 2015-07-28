@@ -21,8 +21,9 @@ router.post('/', function(req,res,next){
 		size: 5,
 		body: {
 			query:{
-				match:{
-					description: query
+				multi_match:{
+					query:query,
+					fields:["positive_questions^5","description"]
 				}
 			}
 		}

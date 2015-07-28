@@ -25,6 +25,8 @@ $(document).ready(function(){
 
 		var resultDiv = $("#results");
 
+		resultDiv.empty();
+
 		for (result in results){
 			var res = results[result]
 			//console.log(res._source.description);
@@ -48,7 +50,7 @@ $(document).ready(function(){
 			method: "POST",
 			data: {"type":type, "id": id, "question":query}
 		}).done(function(response){
-			console.log(response)
+			console.log("success positive")
 		})
 	})
 
@@ -64,7 +66,7 @@ $(document).ready(function(){
 			method: "POST",
 			data: {"type": type, "id": id, "question":query}
 		}).done(function(response){
-			console.log(response)
+			console.log("success negative")
 		})
 	})
 
