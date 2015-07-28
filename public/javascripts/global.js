@@ -14,10 +14,25 @@ $(document).ready(function(){
 			method: "POST",
 			data: {"query":query}
 		})
-		.done(function(resp){
+		.done(function(response){
 			console.log("This is returned by server: ")
-			console.log(resp)	
+			displayResults(response);	//array of objects returned by elasticsearch
+			//return response
 		})
 	})
+
+	var displayResults = function(results){
+
+		var resultDiv = $("#results");
+
+		for (result in results){
+			var res = results[result]
+			console.log(res._source.description);
+			var para = "<p>"+res._source.description+"</p>";
+			var linkPos = "<a href='http://localhost:9200/search/update-positive' class='positive' id='"+res._id+"'>Positive</a>";
+			var linkNeg = "<a href='http://localhost:9200/search/update-negative' class='negative' id='"+res._id+"'>Negative</a>";
+			resultDiv.append(para+linkPos+" "+linkNeg)
+		}
+	}
 
 })

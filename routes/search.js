@@ -10,6 +10,7 @@ var client = new elasticsearch.Client({
 
 // Put elastic routes here
 
+// search for query
 router.post('/', function(req,res,next){
 	var query = req.body.query;
 	console.log(query);
@@ -34,12 +35,19 @@ router.post('/', function(req,res,next){
 	})
 })
 
-router.get('/:query', function(req,res,next){
-	var query = req.params.query;
-	console.log(query);
-	return res.send(query)
+//update the index if the question matches and is correct
+router.post('/update-positive', function(req, res, next){
+	console.log("UPDATING POSITIVE:");
+	console.log(req.body.id);
+	return res.send("done");
 })
 
+//update the index is question doesnt match and is wrong
+router.post('/update-negative', function(req, res, next){
+	console.log("UPDATING NEGATIVE:");
+	console.log(req.body.id);
+	return res.send("done");
+})
 
 
 module.exports = router;
