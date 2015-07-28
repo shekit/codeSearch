@@ -27,12 +27,39 @@ $(document).ready(function(){
 
 		for (result in results){
 			var res = results[result]
-			console.log(res._source.description);
+			//console.log(res._source.description);
 			var para = "<p>"+res._source.description+"</p>";
-			var linkPos = "<a href='http://localhost:9200/search/update-positive' class='positive' id='"+res._id+"'>Positive</a>";
-			var linkNeg = "<a href='http://localhost:9200/search/update-negative' class='negative' id='"+res._id+"'>Negative</a>";
+			var linkPos = "<a href='#' class='positive' id='"+res._id+"'>Positive</a>";
+			var linkNeg = "<a href='#' class='negative' id='"+res._id+"'>Negative</a>";
 			resultDiv.append(para+linkPos+" "+linkNeg)
 		}
 	}
+
+	$("body").on('click', '.positive', function(event){
+		event.preventDefault();
+		var id = event.target.id;
+
+		$.ajax({
+			url: "http://localhost:3000/search/update-positive",
+			method: "POST",
+			data: {"id": id}
+		}).done(function(response){
+			console.log(response)
+		})
+	})
+
+	$("body").on('click', '.negative', function(event){
+		event.preventDefault();
+		var id = event.target.id;
+
+		$.ajax({
+			url: "http://localhost:3000/search/update-negative",
+			method: "POST",
+			data: {"id": id}
+		}).done(function(response){
+			console.log(response)
+		})
+	})
+
 
 })
