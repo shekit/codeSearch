@@ -1,18 +1,14 @@
 var express= require('express')
 var router = express.Router();
 
-router.get('/', function(req,res,next){
-	res.send('hello');
+
+// Put elastic routes here
+
+router.get('/:query', function(req,res,next){
+	var query = req.params.query;
+	console.log(query);
+	return res.send(query)
 })
 
 module.exports = router;
 
-var express = require('express');
-var router = express.Router();
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-module.exports = router;

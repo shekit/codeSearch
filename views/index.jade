@@ -3,6 +3,6 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  form
-    input(type="text" name="search" placeholder="Search")
+  form(id="searchForm")
+    input(type="text" name="search" class="searchField" placeholder="Search")
     input(type="submit" value="search")
