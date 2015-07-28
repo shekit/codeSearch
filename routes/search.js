@@ -39,14 +39,47 @@ router.post('/', function(req,res,next){
 router.post('/update-positive', function(req, res, next){
 	console.log("UPDATING POSITIVE:");
 	console.log(req.body.id);
-	return res.send("done");
+
+	//add question to positive question list in es
+	client.update({
+		index: 'languages',
+		type: req.body.type,
+		id: req.body.id,
+		body: {
+			script: 'if(!ctx._source.positive_questions.contains(new_question)){ctx._source.positive_questions+=new_question}',   //only add if the question doesnt already exist in the list
+			params: {
+				"new_question":req.body.question
+			}
+		}
+	}).then(function(resp){
+		return res.send(resp._version)
+	}, function(err){
+		console.trace(err.message)
+		return
+	})
 })
 
 //update the index is question doesnt match and is wrong
 router.post('/update-negative', function(req, res, next){
 	console.log("UPDATING NEGATIVE:");
 	console.log(req.body.id);
-	return res.send("done");
+
+	client.update({
+		index: 'languages',
+		type: req.body.type,
+		id: req.body.id,
+		body: {
+			script: 'if(!ctx._source.negative_questions.contains(new_question)){ctx._source.negative_questions+=new_question}',   // only add if question doesnt already exist in the list
+			params:{
+				"new_question":req.body.question
+			}
+		}
+	}).then(function(resp){
+		return res.send(resp._version)
+	}, function(err){
+		console.trace(err.message)
+		return
+	})
 })
 
 

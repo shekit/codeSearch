@@ -35,27 +35,34 @@ $(document).ready(function(){
 		}
 	}
 
+	// tell es if this result is correct
 	$("body").on('click', '.positive', function(event){
 		event.preventDefault();
 		var id = event.target.id;
-
+		var query = $(".searchField").val().trim().toLowerCase();  //normalize the query string
+		query = query.replace(/\s\s+/g," ");		// convert all whitespace to single spaces
+		var type = 'p5';
+		
 		$.ajax({
 			url: "http://localhost:3000/search/update-positive",
 			method: "POST",
-			data: {"id": id}
+			data: {"type":type, "id": id, "question":query}
 		}).done(function(response){
 			console.log(response)
 		})
 	})
 
+	// tell es if the result is wrong
 	$("body").on('click', '.negative', function(event){
 		event.preventDefault();
 		var id = event.target.id;
+		var query = $(".searchField").val().trim().toLowerCase();
+		var type = 'p5';
 
 		$.ajax({
 			url: "http://localhost:3000/search/update-negative",
 			method: "POST",
-			data: {"id": id}
+			data: {"type": type, "id": id, "question":query}
 		}).done(function(response){
 			console.log(response)
 		})
