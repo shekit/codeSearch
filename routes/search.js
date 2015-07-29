@@ -23,7 +23,7 @@ router.post('/', function(req,res,next){
 			query:{
 				multi_match:{
 					query:query,
-					fields:["positive_questions^5","description"]
+					fields:["positive_questions","description"]
 				}
 			}
 		}
@@ -34,6 +34,34 @@ router.post('/', function(req,res,next){
 		console.trace(err.message);
 		return
 	})
+
+	// client.search({
+	// 	index: 'languages',
+	// 	type: 'p5',
+	// 	size: 5,
+	// 	body: {
+	// 		query:{
+	// 			bool:{
+	// 				must:{
+	// 					match:{
+	// 						positive_questions:query
+	// 					}
+	// 				},
+	// 				must_not: {
+	// 					match:{
+	// 						negative_questions:query
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }).then(function(resp){
+	// 	var hits = resp.hits.hits;
+	// 	return res.send(hits);
+	// }, function(err){
+	// 	console.trace(err.message);
+	// 	return
+	// })
 })
 
 //update the index if the question matches and is correct
