@@ -1,10 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(id="searchForm")
-    input(type="text" name="search" class="searchField" placeholder="Search")
-    input(type="submit" value="search")
-  div(id="results")
-    h3 Results
+  div(id='content')
+    h1= title
+    p Welcome to #{title}
+    form(id="searchForm")
+      input(type="text" name="search" class="searchField" placeholder="Search")
+      input(type="submit" value="search")
+    div
+      h3 Results
+      div(id="results")
