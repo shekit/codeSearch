@@ -11,7 +11,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		var query = event.target.search.value;
 		query = stripStopWords(query);
-		var type = $("#type :selected").val();
+		var type = $("#typeNew :selected").val();
 		searchFrom = 0; //reset from variable to 0 since its the first search
 		console.log("i have been submitted "+query);
 
@@ -19,12 +19,13 @@ $(document).ready(function(){
 	});
 
 	//perform search
-	$("body").on('keyup', '#searchFormNew', function(event){
+	$("body").on('keyup', '.searchFieldNew', function(event){
+		searchFrom = 0; //reset from variable to 0 since its the first search
 		delaySearch(function(){
 			console.log("calling calling");
 			var query = event.target.value;
 			query = stripStopWords(query);
-			var type = $("#type :selected").val();
+			var type = $("#typeNew :selected").val();
 			console.log("TYPE: "+type);
 			searchFrom = 0; //reset from variable to 0 since its the first search
 			console.log("i have been submitted "+query);
@@ -41,6 +42,19 @@ $(document).ready(function(){
 			timer = setTimeout(callback, ms)
 		}
 	})();
+
+	//reperform search on change of select element
+	$("body").on('change', '#typeNew', function(event){
+		console.log("changed select type");
+		var query = $(".searchFieldNew").val();
+		query = stripStopWords(query);
+		var type = $("#typeNew :selected").val();
+		console.log("TYPE: "+type);
+		searchFrom = 0; //reset from variable to 0 since its the first search
+		console.log("i have been submitted "+query);
+
+		getResult(type,query,searchFrom);
+	})
 
 	//first call to change page layout
 	$("#searchForm").on('keyup', function(event){
@@ -61,7 +75,7 @@ $(document).ready(function(){
 		$("#wrapper").empty();
 		$("#wrapper").append(response);
 		//set cursor at end of field so can continue typing
-		var field = $(".searchField").get(0);
+		var field = $(".searchFieldNew").get(0);
 		var fieldLength = field.value.length;
 		field.selectionStart = fieldLength;
 		field.selectionEnd = fieldLength;
@@ -74,10 +88,10 @@ $(document).ready(function(){
 		var id = event.target.id;
 		//var query = $(".searchField").val().trim().toLowerCase();  //normalize the query string
 		
-		var query = $(".searchField").val();
+		var query = $(".searchFieldNew").val();
 		query = stripStopWords(query);
 		
-		var type = 'p5';
+		var type = $("#typeNew :selected").val();
 
 		console.log(query);
 		
@@ -105,10 +119,10 @@ $(document).ready(function(){
 		// }).done(function(response){
 		// 	console.log("success negative")
 		// })
-		searchFrom++;
-		var query = $(".searchField").val();
+		searchFrom++; //increment counter to get next result
+		var query = $(".searchFieldNew").val();
 		query = stripStopWords(query);
-		var type = $("#type :selected").val();
+		var type = $("#typeNew :selected").val();
 		console.log("TYPE: " + type)
 		console.log("RESUBMITTING: "+query)
 
