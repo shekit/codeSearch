@@ -5,6 +5,9 @@ block content
     h1= title
     p Welcome to #{title}
     form(id="searchForm")
+      select#type
+        option(value='p5') P5
+        option(value='arduino') Arduino
       input(type="text" name="search" class="searchField" placeholder="Search")
       input(type="submit" value="search")
     div

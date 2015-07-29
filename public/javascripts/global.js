@@ -7,23 +7,25 @@ $(document).ready(function(){
 	$(".searchField").select();
 
 	//form submit
-	$("body").on('submit','#searchForm2',function(event){
+	$("body").on('submit','#searchFormNew',function(event){
 		event.preventDefault();
 		var query = event.target.search.value;
 		query = stripStopWords(query);
-		var type = 'p5';
+		var type = $("#type :selected").val();
 		searchFrom = 0; //reset from variable to 0 since its the first search
 		console.log("i have been submitted "+query);
 
 		getResult(type,query,searchFrom);
 	});
 
-	$("body").on('keyup', '#searchForm2', function(event){
+	//perform search
+	$("body").on('keyup', '#searchFormNew', function(event){
 		delaySearch(function(){
 			console.log("calling calling");
 			var query = event.target.value;
 			query = stripStopWords(query);
-			var type = 'p5';
+			var type = $("#type :selected").val();
+			console.log("TYPE: "+type);
 			searchFrom = 0; //reset from variable to 0 since its the first search
 			console.log("i have been submitted "+query);
 
@@ -40,13 +42,15 @@ $(document).ready(function(){
 		}
 	})();
 
+	//first call to change page layout
 	$("#searchForm").on('keyup', function(event){
 		if(firstTime){
 			firstTime = false;
+			var type = $("#type :selected").val();
 			$.ajax({
 			url:"http://localhost:3000/results",
 			method: "POST",
-			data:{"searchField":event.target.value}
+			data:{"searchField":event.target.value, "type":type}
 			}).done(function(response){
 				jumpToResultPage(response)
 			})
@@ -104,7 +108,8 @@ $(document).ready(function(){
 		searchFrom++;
 		var query = $(".searchField").val();
 		query = stripStopWords(query);
-		var type = 'p5';
+		var type = $("#type :selected").val();
+		console.log("TYPE: " + type)
 		console.log("RESUBMITTING: "+query)
 
 		getResult(type,query,searchFrom);
