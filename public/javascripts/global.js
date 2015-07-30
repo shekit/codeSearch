@@ -6,6 +6,22 @@ $(document).ready(function(){
 	//select form on page load
 	$(".searchField").select();
 
+	//show examples of searches
+	$(".search-examples").typed({
+		strings: ["how to draw an ellipse^300 ", "find the square root of a number^300", "draw a square^300", "how to stop the draw loop^300"],
+		typeSpeed: 5,
+		backSpeed:0,
+		loop:true,
+		showCursor:false
+	});
+
+	var highlight = function(){
+		$('code').addClass('javascript')
+		$('pre code').each(function(i,block){
+		hljs.highlightBlock(block);
+		})
+	}
+
 	//form submit
 	$("body").on('submit','#searchFormNew',function(event){
 		event.preventDefault();
@@ -173,6 +189,8 @@ $(document).ready(function(){
 		resultDiv.empty();
 
 		resultDiv.append(results);
+
+		highlight();
 		// for (result in results){
 		// 	var res = results[result]
 		// 	//console.log(res._source.description);

@@ -1,5 +1,37 @@
+/* INDEX PAGE */
+.search-examples {
+	color: #ccc;
+	font-size: 18px;
+	padding-left: 16px;
+	margin-top:20px;
+	font-weight: 300;
+}
+
+.index-margin-from-top {
+	margin-top:10%;
+}
+
+.tagline {
+	margin-bottom: 30px;
+}
+
+/* RESULTS PAGE */
+.top-bar{
+	background-color: #eee;
+	padding: 5px 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.margin-from-top {
+	margin-top: 100px;
+}
+
+.accepted{
+	background:red;
+}
 
 
+/* COMMON */
 select.input-lg{
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -12,7 +44,7 @@ select.input-lg{
 }
 
 .form-control:focus{
-	border-color: #ccc;
+	border-color: #f37a52;
 	box-shadow: none;
 }
 
@@ -24,6 +56,32 @@ select.input-lg{
 	padding-right: 0;
 }
 
-.accepted{
-	background:red;
+
+
+
+
+
+
+
+/* TYPED.JS */
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
