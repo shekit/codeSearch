@@ -31,7 +31,7 @@ $(document).ready(function(){
 			console.log("i have been submitted "+query);
 
 			getResult(type,query,searchFrom);
-		}, 500);
+		}, 200);
 	})
 
 	//function to throttle ajax calls to es

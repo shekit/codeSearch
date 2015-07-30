@@ -1,9 +1,17 @@
-form(id="searchFormNew")
-  select#typeNew
-    option(value='p5') P5
-    option(value='arduino') Arduino
-  input(type="text" name="search" class="searchFieldNew" placeholder="Search" value=search)
-  input(type="submit" value="continue search")
-div
-  h3 New Results
-  div(id="results")
+div(class='row')
+  div(class='row top-bar')
+    div(class='col-sm-3 text-left')
+      h5 Grep
+    div(class='col-sm-6')
+      div(class='row')
+        form(id='searchFormNew')
+          div(class='col-xs-3 col-sm-2 no-padding-right')
+            select(id='typeNew', class='form-control input-lg')
+              option(value='p5') P5
+              option(value='arduino') Arduino
+          div(class='col-xs-9 col-sm-10 no-padding-left')
+            input(type='text' name='search' class='form-control input-lg searchFieldNew' placeholder='Search syntax instantly' value=search)
+    div(class='col-sm-3')
+  div(class='row')
+    div(class='row')
+      div(id='results')
