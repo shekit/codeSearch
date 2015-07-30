@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Put page routes here
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Code Search App' });
+  res.render('index', { title: 'Grep' });
 });
 
 //return new result page

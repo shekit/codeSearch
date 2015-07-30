@@ -4,8 +4,9 @@ block content
   div(id='content')
     h1= title
     p Welcome to #{title}
+    p Instant code search
     form(id="searchForm")
-      select#type
+      select(id='type')
         option(value='p5') P5
         option(value='arduino') Arduino
       input(type="text" name="search" class="searchField" placeholder="Search")

@@ -66,7 +66,9 @@ $(document).ready(function(){
 			method: "POST",
 			data:{"searchField":event.target.value, "type":type}
 			}).done(function(response){
-				jumpToResultPage(response)
+				jumpToResultPage(response);
+				//keep lang selected when page changes
+				$("#typeNew option[value="+type+"]").prop('selected',true)
 			})
 		}
 	});
@@ -95,6 +97,12 @@ $(document).ready(function(){
 
 		console.log(query);
 		
+		//hide the negative link
+		$(".negative").fadeOut(100);
+
+		//change look of the positive link
+		$(this).addClass('accepted');
+
 		//save it to the positive question array in es
 		$.ajax({
 			url: "http://localhost:3000/search/update-positive",
