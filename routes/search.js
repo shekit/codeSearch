@@ -82,7 +82,7 @@ router.post('/update-positive', function(req, res, next){
 		type: req.body.type,
 		id: req.body.id,
 		body: {
-			script: 'if(!ctx._source.positive_questions.contains(new_question)){ctx._source.positive_questions+=new_question}',   //only add if the question doesnt already exist in the list
+			script: 'if(ctx._source.containsKey(\"positive_questions\")){if(!ctx._source.positive_questions.contains(new_question)){ctx._source.positive_questions+=new_question}}else{ctx._source.positive_questions=[new_question]}',   //only add if the question doesnt already exist in the list
 			params: {
 				"new_question":req.body.query
 			}
