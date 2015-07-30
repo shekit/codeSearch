@@ -7,6 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('codeSearchApp:server');
 var http = require('http');
+var cron = require('../cron/cron');
+
+cron.start();
 
 /**
  * Get port from environment and store in Express.

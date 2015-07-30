@@ -118,6 +118,26 @@ router.post('/update-negative', function(req, res, next){
 	})
 })
 
+router.get('/all', function(req, res, next){
+	console.log("CRON JOB");
+
+	client.search({
+		index: 'languages',
+		type: 'p5',
+		body:{
+			query:{
+				match_all:{}
+			}
+		}
+	}).then(function(resp){
+		var hits = resp.hits.hits;
+		return res.send(hits);
+	}, function(err){
+		console.trace(err.message)
+		return
+	})
+})
+
 
 module.exports = router;
 
