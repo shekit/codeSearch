@@ -1,13 +1,15 @@
 div(class='row')
   div(class='row top-bar')
     div(class='col-sm-3 text-left')
-      h5 Grep
+      h1.logo-small
+        a(href="#", class='logo-small')
+          img(src='/images/logo_small.png', width='100', alt='Grep')
     div(class='col-sm-6')
       div(class='row')
         form(id='searchFormNew')
           div(class='col-xs-3 col-sm-2 no-padding-right')
             select(id='typeNew', class='form-control input-lg')
-              option(value='p5') P5
+              option(value='p5') P5.js
               option(value='arduino') Arduino
           div(class='col-xs-9 col-sm-10 no-padding-left')
             input(type='text' name='search' class='form-control input-lg searchFieldNew' placeholder='Search syntax instantly' value=search)

@@ -15,12 +15,18 @@ $(document).ready(function(){
 		showCursor:false
 	});
 
+	//syntax highlighting
 	var highlight = function(){
 		$('code').addClass('javascript')
 		$('pre code').each(function(i,block){
 		hljs.highlightBlock(block);
 		})
 	}
+
+	$("body").on('click', '.logo-small', function(event){
+		event.preventDefault();
+		location.reload();
+	})
 
 	//form submit
 	$("body").on('submit','#searchFormNew',function(event){
