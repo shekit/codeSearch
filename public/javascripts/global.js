@@ -23,9 +23,15 @@ $(document).ready(function(){
 		})
 	}
 
+	//reload page when clicking on small logo
 	$("body").on('click', '.logo-small', function(event){
 		event.preventDefault();
 		location.reload();
+	})
+
+	//select text in search field 
+	$("body").on('click', '.searchFieldNew', function(event){
+		$(this).select();
 	})
 
 	//form submit
@@ -109,7 +115,7 @@ $(document).ready(function(){
 	// tell es if this result is correct
 	$("body").on('click', '.positive', function(event){
 		event.preventDefault();
-		var id = event.target.id;
+		var id = $(".positive").attr('id');
 		//var query = $(".searchField").val().trim().toLowerCase();  //normalize the query string
 		
 		var query = $(".searchFieldNew").val();
@@ -121,6 +127,7 @@ $(document).ready(function(){
 		
 		//hide the negative link
 		$(".negative").fadeOut(100);
+		$(".positive-text").fadeOut(100);
 
 		//change look of the positive link
 		$(this).addClass('accepted');

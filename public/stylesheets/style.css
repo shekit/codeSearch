@@ -1,6 +1,6 @@
 /* INDEX PAGE */
 .search-examples {
-	color: #ccc;
+	color: #bbb;
 	font-size: 18px;
 	padding-left: 16px;
 	margin-top:20px;
@@ -22,7 +22,8 @@ h1.logo-small{
 
 h2 {
 	font-weight: 300;
-	text-decoration: underline
+	text-decoration: underline;
+	border-bottom: 1px solid #333;
 }
 
 .top-bar{
@@ -46,12 +47,12 @@ h2 {
 	position: relative;
 }
 
-.positive:hover, .positive:active {
+.positive:hover, .positive:active, .positive:visited {
 	color: #5cb85c;
 	text-decoration: none;
 }
 
-.negative:hover, .negative:active{
+.negative:hover, .negative:active, .negative:visited{
 	color: #f05a28;
 	text-decoration: none;
 }
@@ -83,6 +84,15 @@ h2 {
 .result-description {
 	font-size: 1.2em;
 	line-height: 1.5em;
+}
+
+/* NO RESULTS PAGE */
+
+.no-results {
+	text-align: center;
+	font-weight: 700;
+	font-size: 2em;
+	color: #bbb;
 }
 
 /* COMMON */
