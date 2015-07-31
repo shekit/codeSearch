@@ -5,7 +5,7 @@ var elasticsearch = require('elasticsearch');
 var client = new elasticsearch.Client({
 	host: 'http://localhost:9200',
 	log: ['trace','error']
-	//apiVersion: "1.7" - throws an error
+	//apiVersion: '1.7' //- throws an error
 });
 
 // Put elastic routes here

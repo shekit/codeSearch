@@ -167,6 +167,7 @@ $(document).ready(function(){
 	})
 
 	var getResult = function(type,query,from){
+		//$(".loader").css({'display':'block'});
 		$.ajax({
 			url:'http://localhost:3000/search',
 			method: "POST",
@@ -174,6 +175,7 @@ $(document).ready(function(){
 		})
 		.done(function(response){
 			console.log("GOT RESULTS")
+			//$(".loader").css({'display':'none'});
 			displayResults(response);	//array of objects returned by elasticsearch
 		}).fail(function(response){
 			console.log(response);
