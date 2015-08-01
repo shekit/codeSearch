@@ -47,12 +47,12 @@ h2 {
 	position: relative;
 }
 
-.positive:hover, .positive:active {
+.positive:hover, .positive:active, .positive:visited {
 	color: #5cb85c;
 	text-decoration: none;
 }
 
-.negative:hover, .negative:active{
+.negative:hover, .negative:active, .negative:visited{
 	color: #f05a28;
 	text-decoration: none;
 }
