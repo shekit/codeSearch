@@ -134,6 +134,12 @@ code {
 	border: 1px solid #ddd;
 }
 
+/* 404 */
+
+.not-found {
+	color: #666;
+	font-weight: bold;
+}
 
 /* MEDIA QUERIES */
 @media(max-width:768px){
