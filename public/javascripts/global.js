@@ -130,6 +130,7 @@ $(document).ready(function(){
 		$(".positive-text").fadeOut(100);
 
 		//change look of the positive link
+		$(this).removeClass('positive');
 		$(this).addClass('accepted');
 
 		//save it to the positive question array in es

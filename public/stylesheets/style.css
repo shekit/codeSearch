@@ -70,7 +70,11 @@ h2 {
 }
 
 .accepted,.accepted:active, .accepted:hover, .accepted:visited{
+	font-size: 48px;
+	display: block;
+	position: relative;
 	color:#5cb85c;
+	cursor: pointer;
 }
 
 .param {
