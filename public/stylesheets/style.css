@@ -153,6 +153,24 @@ code {
 		margin-bottom: 5px;
 		text-align: center;
 	}
+
+	.row {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+
+	.positive, .negative {
+		text-align: center;
+	}
+
+	.positive-text, .negative-text{
+		position: relative;
+		display: block;
+	}
+
+	.margin-from-top {
+		margin-top: 20px;
+	}
 }
 
 /* LOADING SPINNER */
