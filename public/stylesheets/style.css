@@ -1,3 +1,9 @@
+/* OVERRIDES */
+/* bad hack to override styling prob in dev for positive link*/
+a {
+	color:#5cb85c;
+}
+
 /* INDEX PAGE */
 .search-examples {
 	color: #bbb;
