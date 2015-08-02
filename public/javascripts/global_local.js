@@ -112,7 +112,7 @@ $(document).ready(function(){
 			firstTime = false;
 			var type = $("#type :selected").val();
 			$.ajax({
-			url:"http://grep.us/results",
+			url:"http://localhost:3000/results",
 			method: "POST",
 			data:{"searchField":event.target.value, "type":type}
 			}).done(function(response){
@@ -156,7 +156,7 @@ $(document).ready(function(){
 
 		//save it to the positive question array in es
 		$.ajax({
-			url: "http://grep.us/search/update-positive",
+			url: "http://localhost:3000/search/update-positive",
 			method: "POST",
 			data: {"type":type, "id": id, "query":query}
 		}).done(function(response){
@@ -172,7 +172,7 @@ $(document).ready(function(){
 		// var type = 'p5';
 
 		// $.ajax({
-		// 	url: "http://grep.us/search/update-negative",
+		// 	url: "http://localhost:3000/search/update-negative",
 		// 	method: "POST",
 		// 	data: {"type": type, "id": id, "question":query}
 		// }).done(function(response){
@@ -191,7 +191,7 @@ $(document).ready(function(){
 	var getResult = function(type,query,from){
 		//$(".loader").css({'display':'block'});
 		$.ajax({
-			url:'http://grep.us/search',
+			url:'http://localhost:3000/search',
 			method: "POST",
 			data: {"type":type, "query":query, "from":from}
 		})

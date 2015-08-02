@@ -22,6 +22,11 @@ a {
 }
 
 /* RESULTS PAGE */
+
+#resultPage{
+	display: none;
+}
+
 h1.logo-small{
 	margin: 0;
 }
